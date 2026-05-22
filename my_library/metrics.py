@@ -1,11 +1,11 @@
-
+import numpy as np
 def mean_squared_error(y_test,y_pred):
     return np.mean((y_test-y_pred)**2)
     
 def root_mean_squared_error(y_test,y_pred):
     return np.sqrt(mean_squared_error(y_test,y_pred))
     
-def mean_absolute_error(y_test,y_train):
+def mean_absolute_error(y_test,y_pred):
     return np.mean(np.abs(y_test-y_pred))
     
 def r2_score(y_test,y_pred):

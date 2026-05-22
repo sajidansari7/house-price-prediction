@@ -1,7 +1,15 @@
+import numpy as np
 
-
-def normalize(X_train):
-    mean=np.mean(X_train,axis=0)
-    standard_deviation=np.std(X_train,axis=0)
+class StandardScaler:
     
-    return (X_train-mean)/standard_deviation
+    def fit(self,X):
+        self.mean=np.mean(X,axis=0)
+        
+        self.standard_deviation=np.std(X,axis=0)+1e-8
+        
+    def transform(self,X):
+        return (X-self.mean)/self.standard_deviation
+        
+    def fit_transform(self,X):
+        self.fit(X)
+        return self.transform(X)
