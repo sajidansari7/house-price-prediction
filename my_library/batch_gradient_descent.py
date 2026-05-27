@@ -12,7 +12,7 @@ class BatchGradientDescent:
     def fit(self,X_train,y_train):
         n_samples,n_features=X_train.shape
         
-        self.weights=np.ones(n_features)
+        self.weights=np.zeros(n_features)
         self.bias=0.0
         
         for epoch in range(self.epochs):
@@ -32,4 +32,4 @@ class BatchGradientDescent:
             
             
     def predict(self,X_test):
-        return np.dot(X_test,self,weights)+self.bias
+        return np.dot(X_test,self.weights)+self.bias
