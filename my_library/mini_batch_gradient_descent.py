@@ -15,7 +15,7 @@ class MiniBatchGradientDescent:
     
         n_samples,n_features=X_train.shape
         
-        self.weights=np.ones(n_features)
+        self.weights=np.zeros(n_features)
         self.bias=0.0
         
         for epoch in range(self.epochs):
@@ -30,9 +30,9 @@ class MiniBatchGradientDescent:
                 
                 weights_derivative=-2*np.dot((y_train[sample_idx]-y_pred),X_train[sample_idx])/self.batch_size
                 self.weights=self.weights-(self.learning_rate*weights_derivative)
-                
-                loss=np.mean(error**2)
-                self.loss.append(loss)
+            y_pred_all=np.dot(X_train,self.weights)+self.bias   
+            loss=np.mean((y_train-y_pred_all)**2)
+            self.loss.append(loss)
     
     def predict(self,X_test):
         return np.dot(X_test,self.weights)+self.bias

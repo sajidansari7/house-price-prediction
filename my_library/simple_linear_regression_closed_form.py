@@ -1,5 +1,5 @@
 import numpy as np
-class simple_linear_regression(closed_form):
+class simple_linear_regression_closed_form:
     def __init_(self):
         self.slope=None
         self.bias=None

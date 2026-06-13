@@ -13,3 +13,6 @@ class StandardScaler:
     def fit_transform(self,X):
         self.fit(X)
         return self.transform(X)
+        
+    def inverse_transform(self,X):
+        return (X*self.standard_deviation)+self.mean
